@@ -15,8 +15,8 @@
 
 </mat-card>
 
-<ng-container *ngIf="dataSource.data && dataSource.data.length>0">
-    <table [dataSource]="dataSource" mat-table>
+<ng-container *ngIf="dataSource.data && dataSource.data.length>0;else error">
+    <table [dataSource]="dataSource" mat-table >
         <ng-container matColumnDef="id">
             <th style="text-align: center" *matHeaderCellDef mat-header-cell>#</th>
             <td style="text-align: center" *matCellDef="let index = index;" mat-cell>
@@ -33,7 +33,7 @@
             </td>
         </ng-container>
         <ng-container matColumnDef="lastName">
-            <th style="text-align: center" *matHeaderCellDef mat-header-cell>Фамилия</th>
+            <th style="text-align: center" *matHeaderCellDef mat-header-cell >Фамилия</th>
             <td style="text-align: center" *matCellDef="let author" mat-cell
 
             >
@@ -41,8 +41,8 @@
             </td>
         </ng-container>
         <ng-container matColumnDef="middleName">
-            <th style="text-align: center" *matHeaderCellDef mat-header-cell>Отчество</th>
-            <td style="text-align: center" *matCellDef="let author" mat-cell
+            <th *matHeaderCellDef mat-header-cell>Отчество</th>
+            <td *matCellDef="let author" mat-cell
 
             >
                 {{author.middleName}}
@@ -60,3 +60,7 @@
         <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
     </table>
 </ng-container>
+<ng-template #error>
+    <p style="text-align: center; color: #6f42c1; margin-top: 20px; font-size: 30px">Нет данных</p>
+
+</ng-template>
