@@ -9,29 +9,41 @@ import {BooksComponent} from './views/books/books.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {AddAuthorModalComponent} from './dialog/add-author-modal/add-author-modal.component';
-import {DIALOG_DATA} from "@angular/cdk/dialog";
 import {MatDialogModule} from "@angular/material/dialog";
 import {DataService} from "./service/data.service";
 import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {matDatepickerAnimations, MatDatepickerModule} from "@angular/material/datepicker";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthorsComponent,
-    BooksComponent,
-    AddAuthorModalComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatTableModule
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AuthorsComponent,
+        BooksComponent,
+        AddAuthorModalComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDialogModule,
+        MatTableModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        MatNativeDateModule,
+        FormsModule,
+        MatInputModule
+    ],
+    providers: [DataService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

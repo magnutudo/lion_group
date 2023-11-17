@@ -1,1 +1,46 @@
-<p>add-author-modal works!</p>
+<mat-dialog-content>
+    <p mat-dialog-title>{{dialogTitle}}</p>
+    <mat-form-field>
+        <mat-label>Имя</mat-label>
+        <input
+            #inputName
+            matInput
+            [(ngModel)]="tmpFirstName"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Фамилия</mat-label>
+        <input
+            #inputLastName
+            matInput
+            [(ngModel)]="tmpLastName"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Отчество</mat-label>
+        <input
+            #inputMiddleName
+            matInput
+            [(ngModel)]="tmpMiddleName"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Дата</mat-label>
+        <input matInput #inputData
+               [matDatepicker]="picker" [(ngModel)]="tmpDateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button
+            (click)="onConfirm()"
+            [disabled]="inputName.value.trim().length==0 && inputLastName.value.trim().length == 0 && inputMiddleName.value.trim().length ==0 && inputData.value.trim().length ==0"
+            color="primary"
+            mat-raised-button>
+        Сохранить
+    </button>
+
+    <button (click)="onCancel()" mat-raised-button>Отмена</button>
+
+</mat-dialog-actions>
