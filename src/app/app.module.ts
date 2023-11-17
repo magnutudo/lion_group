@@ -11,6 +11,8 @@ import {MatCardModule} from "@angular/material/card";
 import {AddAuthorModalComponent} from './dialog/add-author-modal/add-author-modal.component';
 import {DIALOG_DATA} from "@angular/cdk/dialog";
 import {MatDialogModule} from "@angular/material/dialog";
+import {DataService} from "./service/data.service";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import {MatDialogModule} from "@angular/material/dialog";
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
