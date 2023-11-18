@@ -1,0 +1,44 @@
+<mat-dialog-content>
+    <p mat-dialog-title>{{dialogTitle}}</p>
+    <mat-form-field>
+        <mat-label>Автор</mat-label>
+        <mat-select [(ngModel)]="tmpAuthor" required placeholder="Выберите элемент">
+            <mat-option  *ngFor="let item of authors" [value]="item">
+                {{item.firstName}} {{item.lastName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Название</mat-label>
+        <input
+            #inputTitle
+            matInput
+            [(ngModel)]="tmpTitle"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Издатель</mat-label>
+        <input
+            #inputPublisher
+            matInput
+            [(ngModel)]="tmpPublisher"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Год</mat-label>
+        <input #inputYear type="number" matInput [(ngModel)]="tmpYear">
+
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button
+            (click)="onConfirm()"
+            [disabled]=" inputPublisher.value.trim().length == 0 && inputTitle.value.trim().length ==0 && inputYear.value.trim().length == 0"
+            color="primary"
+            mat-raised-button>
+        Сохранить
+    </button>
+
+    <button (click)="onCancel()" mat-raised-button>Отмена</button>
+
+</mat-dialog-actions>

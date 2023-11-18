@@ -1,4 +1,66 @@
 <div class="header">
-  <button mat-button routerLink="/authors">Добавить автора</button>
-  <button mat-button routerLink="/books">Добавить книгу</button>
+    <button mat-button routerLink="/authors">Добавить автора</button>
+    <button mat-button routerLink="/books">Добавить книгу</button>
 </div>
+
+<mat-card>
+    <div class="flex_container">
+        <mat-card-header>
+            <mat-card-title>Добавление книги</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <button mat-raised-button (click)="openAddBookModal()">Добавить книгу</button>
+        </mat-card-content>
+    </div>
+
+</mat-card>
+
+<ng-container *ngIf="dataSource.data && dataSource.data.length>0;else errorMessage">
+    <table [dataSource]="dataSource" mat-table matSort>
+        <ng-container matColumnDef="id">
+            <th style="text-align: center" *matHeaderCellDef mat-header-cell>#</th>
+            <td style="text-align: center" *matCellDef="let index = index;" mat-cell>
+                {{index + 1}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+            <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Автор</th>
+            <td *matCellDef="let book" mat-cell
+
+            >
+                {{book.author.lastName}}
+
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+            <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Название</th>
+            <td *matCellDef="let book" mat-cell
+
+            >
+                {{book.title}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="publisher">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header>Издатель</th>
+            <td *matCellDef="let book" mat-cell
+
+            >
+                {{book.publisher}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="year">
+            <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Год</th>
+            <td *matCellDef="let book" mat-cell
+
+            >
+                {{book.year }}
+            </td>
+        </ng-container>
+        <tr *matHeaderRowDef="displayedColumns; " mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+</ng-container>
+
+<ng-template #errorMessage>
+    <p style="text-align: center; color: #6f42c1; margin-top: 20px; font-size: 30px">Нет данных</p>
+</ng-template>

@@ -18,13 +18,16 @@ import {matDatepickerAnimations, MatDatepickerModule} from "@angular/material/da
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
+import { AddBookModalComponent } from './dialog/add-book-modal/add-book-modal.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
     declarations: [
         AppComponent,
         AuthorsComponent,
         BooksComponent,
-        AddAuthorModalComponent
+        AddAuthorModalComponent,
+        AddBookModalComponent
     ],
     imports: [
         BrowserModule,
@@ -33,14 +36,15 @@ import {MatInputModule} from "@angular/material/input";
         MatButtonModule,
         MatCardModule,
         MatDialogModule,
-        MatTableModule,
-        MatSortModule,
         MatFormFieldModule,
         MatDatepickerModule,
         ReactiveFormsModule,
         MatNativeDateModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatTableModule,
+        MatSortModule,
+        MatSelectModule
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
