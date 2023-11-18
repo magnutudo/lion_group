@@ -1,7 +1,7 @@
 import {Observable, of} from "rxjs";
 import {Author} from "../models/author";
 import {Data} from "../dataSet/data";
-import {Books} from "../models/books";
+import {Book} from "../models/book";
 
 
 export class DataService {
@@ -10,7 +10,7 @@ export class DataService {
         return of(sourtedAuthors)
     }
 
-    getAllBooks(): Observable<Books[]> {
+    getAllBooks(): Observable<Book[]> {
         return of(Data.books)
     }
 
@@ -21,6 +21,11 @@ export class DataService {
         } else {
             return
         }
+    }
+
+    postBook(book: Book) {
+        Data.books.push(book)
+        localStorage.setItem("books", JSON.stringify(Data.books))
     }
 
     getAuthorsFromLocalStorage(): Author[] {

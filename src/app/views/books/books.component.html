@@ -25,7 +25,7 @@
         </ng-container>
         <ng-container matColumnDef="author">
             <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Автор</th>
-            <td  *matCellDef="let book" mat-cell
+            <td *matCellDef="let book" mat-cell
 
             >
                 {{book.author.lastName}}
@@ -34,7 +34,7 @@
         </ng-container>
         <ng-container matColumnDef="title">
             <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Название</th>
-            <td  *matCellDef="let book" mat-cell
+            <td *matCellDef="let book" mat-cell
 
             >
                 {{book.title}}
@@ -48,9 +48,9 @@
                 {{book.publisher}}
             </td>
         </ng-container>
-        <ng-container  matColumnDef="year">
+        <ng-container matColumnDef="year">
             <th style="text-align: center" *matHeaderCellDef mat-header-cell mat-sort-header>Год</th>
-            <td  *matCellDef="let book" mat-cell
+            <td *matCellDef="let book" mat-cell
 
             >
                 {{book.year }}

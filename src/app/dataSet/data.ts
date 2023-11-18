@@ -1,5 +1,5 @@
 import {Author} from "../models/author";
-import {Books} from "../models/books";
+import {Book} from "../models/book";
 
 export class Data {
     static authors: Author[] = [
@@ -10,7 +10,7 @@ export class Data {
 
 
 static
-books:Books[] = [
+books:Book[] = [
     {id: 1, author: Data.authors[1], title: "Бульба", year: 2003, publisher: "СПБ"},
     {id: 2, author: Data.authors[0], title: "Тарас", year: 2008, publisher: "МСК"},
     {id: 3, author: Data.authors[2], title: "Жук", year: 1998, publisher: "ЕКБ"},

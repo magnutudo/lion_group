@@ -33,6 +33,7 @@ export class AuthorsComponent implements OnInit {
         );
         dialogRef.afterClosed().subscribe(res => {
             const newId = Data.authors.length > 0 ? Math.max(...Data.authors.map(author => author.id)) + 1 : 1;
+
             const newAuthor: Author = {
                 ...res,
                 id: newId
