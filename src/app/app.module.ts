@@ -33,14 +33,14 @@ import {MatInputModule} from "@angular/material/input";
         MatButtonModule,
         MatCardModule,
         MatDialogModule,
-        MatTableModule,
-        MatSortModule,
         MatFormFieldModule,
         MatDatepickerModule,
         ReactiveFormsModule,
         MatNativeDateModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatTableModule,
+        MatSortModule
     ],
     providers: [DataService],
     bootstrap: [AppComponent]

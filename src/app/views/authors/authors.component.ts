@@ -43,11 +43,15 @@ export class AuthorsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.dataSource = new MatTableDataSource()
-        localStorage.getItem("authors")
-        this.dataService.getAllAuthors().subscribe(auths => {
-            this.dataSource.data = auths
-        })
-
+        this.dataSource = new MatTableDataSource();
+        let localArr: Author[] = JSON.parse(localStorage.getItem("authors"))
+        console.log(localArr)
+        if (localStorage.getItem("authors")) {
+            this.dataSource.data = localArr
+        } else {
+            this.dataService.getAllAuthors().subscribe(auths => {
+                this.dataSource.data = auths
+            })
+        }
     }
 }
